@@ -1,0 +1,79 @@
+<ion-header>
+     
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+
+       
+       <ion-title>
+
+        Favorite Orders
+      
+
+       </ion-title>
+
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content>
+
+  <div class="container-fluid my-5 d-sm-flex justify-content-center">
+      <div class="card px-2" *ngFor="let order of orders" style="margin-bottom: 31px">
+          <div class="card-header bg-white">
+            <div class="row justify-content-between">
+              <div class="col">
+                  <p class="text-muted"> Order ID  <span class="font-weight-bold text-dark">{{order.OrderNo}}</span></p> 
+                  <p class="text-muted"> Place On <span class="font-weight-bold text-dark">{{order.Date | date:'dd-MM-yyyy '}}</span> </p></div>
+            </div>
+          </div>
+          <div class="card-body">
+              <div>
+                  <p>Order Details</p> 
+                </div>
+         
+                  <div class="row" *ngFor="let pro of order.OrderProducts" style="margin-top: 6px !important;">
+                      <div class="col-3" >
+                          <img src="../../assets/photos/Items/{{pro.Img}}">
+                      </div>
+                      <div class="col-4" >
+                          <span>{{pro.Name}}</span>
+                      </div>
+                      <div class="col-3" >
+                          <span>{{pro.price}}</span>
+                      </div>
+                      <div class="col-2" >
+                          <span>{{pro.qty}}</span>
+                      </div>
+                  </div>
+       
+          </div>
+          <div class="row px-3">
+              <div class="col">
+                  <ul id="progressbar" >
+                      <li class="step0 active " id="step1">PLACED</li>
+                      <li class="step0 active text-center" id="step2">SHIPPED</li>
+                      <li class="step0  text-muted text-right" id="step3">DELIVERED</li>
+                  </ul>
+              </div>
+          </div>
+           <div class="card-footer  bg-white px-sm-3 pt-sm-4 px-0">
+              <div class="row text-center  ">
+                  <div class="col my-auto  border-line "><h5 >
+
+                      <i class="bi bi-heart" *ngIf="!order.Favorite" (click)="AddToFav(order.id)"></i>
+                      <i class="bi bi-heart-fill" *ngIf="order.Favorite" (click)="removeFromFav(order.id)"></i>
+                  </h5></div>
+                  <div class="col my-auto   border-line " (click)="Reorder(order.id)"><h5>Re-Order</h5></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     Users
+    </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/add-user">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+
+  <ion-list>
+    
+
+    <ion-item-sliding *ngFor="let user of fb.user | async; let i=index " class="j">
+      <ion-card> 
+      <ion-item>
+        <ion-label>{{user.Name}}</ion-label>
+      </ion-item>
+    </ion-card>
+
+      <ion-item-options side="start" *ngIf="user.id">
+      <ion-item-option style="background-color:transparent">
+        <ion-button fill="clear" color="secondary" routerLink="/edit-user/{{user.id}}">
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-button>
+      </ion-item-option>
+      </ion-item-options>
+
+      
+      <ion-item-options side="end" *ngIf="user.id">
+      <ion-item-option style="background-color:transparent">
+        <ion-button color="danger" fill="clear" (click)="deleteusr(user.id)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-item-option>
+      </ion-item-options>
+    
+     </ion-item-sliding>
+
+
+     
+
+
+   </ion-list>
+      
+
+
+
+
+  
+</ion-content>

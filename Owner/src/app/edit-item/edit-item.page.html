@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button default-href="#"></ion-back-button>
+</ion-buttons>
+  
+    <ion-title>edit-item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Name: </ion-label>
+      <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description: </ion-label>
+      <ion-input type="text" [(ngModel)]="item.desc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Qty: </ion-label>
+      <ion-input type="number" [(ngModel)]="item.quantity"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Price: </ion-label>
+      <ion-input type="number" [(ngModel)]="item.price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Image Name: </ion-label>
+      <ion-input type="text" [(ngModel)]="item.img"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Category: </ion-label>
+      <ion-input type="text" [(ngModel)]="item.category"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Threshold: </ion-label>
+      <ion-input type="text" [(ngModel)]="item.threshold"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button color="primary" (click)="updateItem()" >Update</ion-button>
+</ion-content>
+

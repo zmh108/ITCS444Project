@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+    <ion-title>Add Shift</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="ion-padding">
+
+
+
+<br>
+
+
+
+  <ion-item>
+
+  <ion-datetime presentation="date" [(ngModel)]="storesh.date" pickerFormat="DD.MM.YYYY" [showDefaultButtons]="true"></ion-datetime>
+
+</ion-item>
+
+<!--
+  Free Time Slots
+  <ion-item>
+  <ion-datetime (ionChange)="handleChange(storesh.date)" presentation="date" [(ngModel)]="storesh.date" pickerFormat="DD.MM.YYYY" [showDefaultButtons]="true"></ion-datetime>
+</ion-item>
+-->
+
+
+
+<ion-item>
+
+  <ion-icon name="calendar-outline" slot="start"></ion-icon>
+
+  <ion-label>Date</ion-label>
+
+  <ion-label slot="end">{{date | date: 'dd-MM-yyyy'}}</ion-label>
+
+</ion-item>
+
+<ion-item>
+
+  <ion-icon icon="time-outline" slot="start"></ion-icon>
+
+    <ion-label>Select Time Slot</ion-label>
+
+   
+
+      <ion-select [(ngModel)]="storesh.time">
+
+          <!-- <div *ngIf="x.date == storesh.date"> -->
+
+            <!-- <div *ngFor="let x of (storeshift | async)"> -->
+
+        <ion-select-option  value="morning">Morning Shift 7:00-11:000 </ion-select-option>
+
+        <ion-select-option  value="afternoon">Afternoon Shift 13:00-17:00 </ion-select-option>
+
+        <ion-select-option  value="night">Night Shift 19:00-23:00 </ion-select-option>
+
+      <!-- </div> -->
+
+    <!-- </div> -->
+
+      </ion-select>
+
+   
+
+</ion-item>
+
+<!--
+  Free Time Slots
+  <ion-item>
+  <ion-icon icon="time-outline" slot="start"></ion-icon>
+    <ion-label>Select Time Slot</ion-label>
+   
+      <ion-select [(ngModel)]="storesh.time">
+             <div *ngFor="let x of (storeshift | async)"> 
+              <div *ngIf="x.date == seValue"> 
+
+                <div *ngIf="x.date == storesh.date">
+                  <div *ngIf="x.time">
+           <ion-select-option *ngIf="showed"  value="morning">Morning Shift 7:00-11:000 </ion-select-option>
+           <ion-select-option *ngIf="showed"  value="afternoon">Afternoon Shift 13:00-17:00 </ion-select-option>
+           <ion-select-option *ngIf="showed"  value="night">Night Shift 19:00-23:00 </ion-select-option>
+         </div>
+          </div> 
+          </div> 
+         </ion-select>
+       
+   </ion-item>
+-->
+
+ 
+
+
+
+<ion-item>
+
+  <ion-icon icon="person-outline" slot="start"></ion-icon>
+
+    <ion-label>Select Employee</ion-label>
+
+   
+
+      <ion-select [(ngModel)]="storesh.Empid">
+
+        <div *ngFor="let user of (users | async)">
+
+          <div *ngIf="user.Type == 'Employee'">
+
+         <ion-select-option value="{{user.Name}}_{{user.id}}"> {{user.Name}}</ion-select-option>
+
+        </div>
+
+      </div>
+
+      </ion-select>
+
+</ion-item>
+
+
+
+
+
+
+<div align=center>
+
+  <ion-button (click)="addShift()">Add</ion-button>
+
+</div>
+
+
+
+
+
+
+</ion-content>

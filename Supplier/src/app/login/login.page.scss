@@ -1,0 +1,10 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background-color: #fd6585;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background-color: #2b2d3e;
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient(135deg, #ffd3a5 10%, #fd6585 100%);
+    }

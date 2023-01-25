@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+
+       <ion-title>
+
+       Orders Requests
+      
+
+       </ion-title>
+ 
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content>
+  <div class="container-fluid my-5 d-sm-flex justify-content-center">
+      <div class="card px-2" *ngFor="let order of orders" style="margin-bottom: 31px">
+          <div class="card-header bg-white">
+            <div class="row justify-content-between">
+              <div class="col">
+                  <p class="text-muted"> Order ID  <span class="font-weight-bold text-dark">{{order.OrderNo}}</span></p> 
+                  <p class="text-muted"> Order Date <span class="font-weight-bold text-dark">{{order.Date | date:'dd-MM-yyyy '}}</span> </p></div>
+            </div>
+          </div>
+          <div class="card-body">
+              <div>
+                  <p>Order Details</p> 
+                </div>
+         
+                  <div class="row" *ngFor="let pro of order.OrderProducts" style="margin-top: 6px !important;">
+                       
+                      <div class="col-3" >
+                          
+                      </div>
+                      <div class="col-5" >
+                          <span>Bread</span>
+                      </div>
+                      <div class="col-2" >
+                          <span> 1 </span>
+                      </div>
+                      <div class="col-2" >
+                          <span>3 </span>
+                      </div>
+                  </div>
+       
+          </div>
+          <div class="row px-3">
+              <div class="col">
+                  <ul id="progressbar" >
+                      <div *ngIf="order.OrderStatus == 'Processing'">
+                          <li class="step0 active " id="step1">Processing</li>
+                          <li class="step0  text-center" id="step2">Approved</li>
+                          <li class="step0  text-center" id="step3">Delivered</li>
+                      </div>
+
+                      <div *ngIf="order.OrderStatus == 'Approved'">
+                          <li class="step0 active " id="step1">Processing</li>
+                          <li class="step0 active text-center" id="step2">Approved</li>
+                          <li class="step0  text-center" id="step3">Delivered</li>
+                      </div>
+                    
+                      <div *ngIf="order.OrderStatus == 'Rejected'">
+                          <li class="step0 rejected"  id="step1" >Processing</li>
+                          <li class="step0 rejected text-center" id="step2">Approved</li>
+                          <li class="step0 rejected  text-muted text-right" id="step3">Rejected</li>
+                      </div>
+                      
+                  </ul>
+              </div>
+          </div>
+           <div class="card-footer  bg-white px-sm-3 pt-sm-4 px-0">
+              <div class="row text-center  ">
+                  <div class="col my-auto  border-line "><h5 >
+
+                      <i class="bi bi-check2"  (click)="approve(order.id)"></i>
+ 
+                  </h5></div>
+                  <div class="col my-auto   border-line "><h5><i class="bi bi-x-lg" (click)="reject(order.id)"></i></h5></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+</ion-content>

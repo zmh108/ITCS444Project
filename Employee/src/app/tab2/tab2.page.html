@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Requests 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-card *ngFor="let x of (reqs | async); let i=index">
+    <!-- <div *ngIf="x.receiveID == disuser.id"> -->
+      <div *ngIf="x.receiveID == disuser.id">
+    
+    <ion-item lines="none">
+
+      
+      <ion-label>
+        <h6>Date: {{x.date | date: 'dd-MM-yyyy'}}</h6>
+        <h6>Time1: {{x.timeReq}}</h6>
+        <h6>Time2: {{x.timeRec}}</h6>
+        <h6>Request from: {{x.requesterName}}</h6>
+        <!-- <h6>Employee Name: {{x}}</h6> -->
+      </ion-label>
+
+      <ion-button (click)="approved(x.id,x)" slot="end" color="success" expand="outline"><ion-icon name="checkmark"></ion-icon></ion-button>
+      <ion-button (click)="rejected(x.id)" slot="end" color="danger" expand="outline"><ion-icon name="close"></ion-icon></ion-button>
+
+    </ion-item>
+  </div>
+
+  </ion-card>
+
+
+  
+ 
+</ion-content>

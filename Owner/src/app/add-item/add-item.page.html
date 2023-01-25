@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Add Item
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding">
+  
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Name: </ion-label>
+      <ion-input type="text" [(ngModel)]="Item.Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description: </ion-label>
+      <ion-input type="text" [(ngModel)]="Item.Desc"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Qty: </ion-label>
+      <ion-input type="number" [(ngModel)]="Item.Quantity"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Price: </ion-label>
+      <ion-input type="number" [(ngModel)]="Item.Price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Image Name: </ion-label>
+      <ion-input type="text" [(ngModel)]="Item.Img"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Category: </ion-label>
+      <ion-select [(ngModel)]="Item.Category">
+        <ion-select-option *ngFor="let c of Categories" [value]="c.Category">{{c.Category}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Threshold: </ion-label>
+      <ion-input type="text" [(ngModel)]="Item.Threshold"></ion-input>
+    </ion-item>
+  </ion-list>
+  
+  
+  <ion-button color="primary" (click)="addItem()" >Add</ion-button>
+</ion-content>

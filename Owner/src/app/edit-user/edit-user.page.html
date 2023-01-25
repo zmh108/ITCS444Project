@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+
+    <ion-title>Edit User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Name </ion-label>
+      <ion-input type="text" enable="true" [(ngModel)]="user.Name" style="color:crimson" name="Name"
+      value="{{uName}}">
+        
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Type
+      </ion-label>
+      <ion-select placeholder="Select.." [(ngModel)]="user.type" style="color:crimson" name="type"
+      value="{{utype}}"> 
+        <ion-select-option value="Employee">Employee</ion-select-option>
+        <ion-select-option value="Supplier">Supplier</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" enable="true" [(ngModel)]="user.email" style="color:crimson" name="email"
+      value="{{uemail}}">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="text" enable="true" [(ngModel)]="user.password" style="color:crimson" name="password"
+      value="{{upassword}}"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Phone
+      </ion-label>
+      <ion-input type="tel" [(ngModel)]="user.phone" style="color:crimson" value="user.phone" name="phone"
+      value="{{uphone}}"
+      ></ion-input>
+    </ion-item>
+
+  
+    <br>
+  <div align=center>
+    <ion-button fill="outline" color="dark" (click)="updateuser(index)">
+       Apply Changes
+      <ion-icon name="id-card-outline"></ion-icon>
+    </ion-button>
+  </div>
+  
+
+
+
+
+
+  </ion-list>
+
+</ion-content>

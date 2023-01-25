@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+
+        <ion-back-button default-href="#"></ion-back-button>
+
+    </ion-buttons>
+
+
+
+    <ion-title>
+
+  {{supplierName}} Items
+
+    </ion-title>
+
+    <ion-title size="large"></ion-title>
+
+
+
+
+    <ion-buttons slot="end">
+
+
+
+
+      <ion-button type="icon-only" (click)="goToCart()">
+
+        <i class="bi bi-cart" >{{NoOfItems}}</i>
+
+      </ion-button>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content>
+
+  <!-----------------------Search Bar --------------------------------->
+
+  <ion-searchbar placeholder="Try 'Matcha'"
+
+                [(ngModel)]="searchTerm"
+
+                showCancelButton="focus"
+
+                animated></ion-searchbar>
+
+
+
+  <!----------------------Segment- SubCategory of Product ---------------->
+
+
+
+
+<div *ngIf="showNoItems">
+
+  <div class="row" style="    padding: 20px;">
+
+    <div *ngFor="let item of items | filter: searchTerm" class=" col-6 col-mid-4 col-sm-3 " style="padding: 5px;">
+
+      <div class="hovereffect">
+
+        <img class="img-responsive rounded" src="../../assets/photos/Items/{{item.Img}}" style=" height: 170px;" alt="">
+
+        <div class="overlay">
+
+           <h4 style="color:white" class="imageHeader">{{item.Name}}</h4>
+
+           <a class="info" href="javascript:void(0)" (click)="addToCart(item.id,item.Name,item.Price)"><i class="bi bi-cart"></i></a>
+
+
+
+        </div>
+
+        <h4 style="color:white; " class="imageFooter">Price:  {{item.Price}} BHD</h4>
+
+      </div>
+
+    </div>
+
+  </div>
+
+       
+
+</div>
+
+
+
+
+<div class="alert alert-dark" role="alert" *ngIf="!showNoItems">
+
+  This is a dark alert—check it out!
+
+</div>
+
+</ion-content>
+

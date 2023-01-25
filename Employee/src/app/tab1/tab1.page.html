@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My shifts
+    </ion-title>
+    <ion-button expand="clear" slot="end" routerLink="/">Sign out</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-label>hh++  {{shiftuser.date}}</ion-label> -->
+
+  <ion-card>
+
+    <ion-item>
+      <ion-label color="primary">Date</ion-label>
+      <ion-label color="primary">Time</ion-label>
+    </ion-item>
+    
+  <ion-item-sliding *ngFor="let x of (storeshift | async); let i=index">
+    <!-- <h4>hhhh {{disuser.Name}}</h4> -->
+    <!-- <h4>ll {{x.nameEm}}</h4>
+    <h4>rrrr {{shiftuser.nameEm}}</h4> -->
+    <!-- <h4>MY ID {{x.Empid}}</h4>
+    <h4>DISUSER {{disuser.id}}</h4> -->
+
+    <ion-item *ngIf="x.Empid == storesh.Empid">
+      <!-- <h5>hope {{x.nameEm}}</h5> -->
+      
+        <ion-label>{{x.date | date: 'dd-MM-yyyy'}}</ion-label>
+        <ion-label>{{x.time}}</ion-label>
+
+    </ion-item>
+
+      <ion-item-options> 
+          <ion-button (click)="reqestTrade(i)">Request</ion-button>
+        </ion-item-options>
+</ion-item-sliding>
+</ion-card>
+
+
+
+
+</ion-content>
+

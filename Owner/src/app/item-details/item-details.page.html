@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+
+    <ion-title>{{item.name}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="icon-only" routerLink="/edit-item/{{id}}">
+        <ion-icon name="hammer"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card  class="l">
+    <ion-card-content >
+      
+      <img src="../../assets/photos/Items/{{item.img}}" style="height: 150px">
+      
+      <ion-card-header>
+        <ion-card-subtitle class="l">
+          Name: {{item.name}}
+        </ion-card-subtitle>
+        <ion-card-subtitle class="l">
+          Description: {{item.desc}}
+        </ion-card-subtitle>
+        <ion-card-subtitle class="l">
+          Quantity: {{item.quantity}}
+        </ion-card-subtitle>
+        <ion-card-subtitle class="l">
+          Price: {{item.price}} BHD
+        </ion-card-subtitle>
+        <ion-card-subtitle class="l">
+          Category: {{item.category}}
+        </ion-card-subtitle>
+        <ion-card-subtitle class="l">
+          Threshold: {{item.threshold}}
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

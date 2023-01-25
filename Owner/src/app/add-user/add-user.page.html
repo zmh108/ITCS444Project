@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+    <ion-title>Add User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+ <ion-list>
+
+  <ion-item>
+    <ion-label>
+      
+      Name:
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.Name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      
+      Type:
+    </ion-label>
+    <ion-select placeholder="Select.." [(ngModel)]="user.type">
+      <ion-select-option value="Employee">Employee</ion-select-option>
+      <ion-select-option value="Supplier">Supplier</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>
+      
+      Phone:
+    </ion-label>
+    <ion-input type="tel" [(ngModel)]="user.phone"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      
+      Email:
+    </ion-label>
+    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      
+      Password:
+    </ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+
+<br>
+  
+    <ion-button color="primary" (click)="adduser()">
+      Add
+      
+    </ion-button>
+  
+  
+
+ </ion-list>
+
+
+
+</ion-content>

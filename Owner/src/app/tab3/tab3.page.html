@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Shifts</ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="icon-only" routerLink="/add-shift">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" >
+
+
+  <ion-list id="bgc">
+ 
+
+
+    <ion-item-sliding  *ngFor="let s of (storeshift | async); let i=index">
+<!-- 
+      <ion-item>
+       <ion-label >{{s.nameEm}}</ion-label>
+       <ion-label >{{s.time}}</ion-label> 
+      </ion-item>
+      <ion-item>       
+        <ion-label color="primary">Date: {{s.date | date: 'dd-MM-yyyy'}}</ion-label>
+      </ion-item> -->
+      <ion-card>
+      <ion-item>
+        <ion-label>Name: {{s.nameEm}}</ion-label>
+      </ion-item>
+
+        <ion-item>
+        <ion-label>Date: {{s.date | date: 'dd-MM-yyyy'}}</ion-label>
+      </ion-item>
+
+        <ion-item>
+        <ion-label >Time: {{s.time}}</ion-label> 
+      </ion-item>
+    </ion-card>
+
+      <ion-item-options> 
+        <ion-button routerLink="/view-employee/{{i}}">view</ion-button>
+      </ion-item-options>
+  
+    </ion-item-sliding>
+
+
+  </ion-list>
+
+</ion-content>

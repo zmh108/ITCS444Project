@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+
+    <ion-title>Add Order</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+<ion-content>
+
+  <!-----------------------Search Bar --------------------------------->
+
+  <ion-searchbar placeholder="Try 'Batman'"
+
+                [(ngModel)]="searchTerm"
+
+                showCancelButton="focus"
+
+                animated ></ion-searchbar>
+
+
+
+  <!----------------------Segment- SubCategory of Product ---------------->
+
+
+
+
+
+  <div class="row" style="    padding: 20px;">
+
+    <div *ngFor="let supplier of suppliers  | filter: searchTerm" class=" col-6 col-mid-4 col-sm-3 " style="padding: 5px;">
+
+      <div class="hovereffect">
+
+        <img class="img-responsive rounded"  src="../../assets/photos/Suppliers/{{supplier.Img}}" style="max-height: 163px;"alt="">
+
+        <div class="overlay">
+
+           <a class="info" href="javascript:void(0)" (click)="goCategory(supplier.id)"><i class="bi bi-shop">Shop</i></a>
+
+        </div>
+
+        <h4 style="color:white; " class="imageFooter">{{supplier.Name}}</h4>
+
+      </div>
+
+    </div>
+
+  </div>
+
+       
+
+ 
+
+ 
+
+</ion-content>
+

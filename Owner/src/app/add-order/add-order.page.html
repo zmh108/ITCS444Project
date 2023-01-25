@@ -1,0 +1,154 @@
+<ion-header [translucent]="true">
+
+
+
+  <ion-toolbar>
+
+
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+
+
+
+    <ion-title>
+
+
+
+      Categories
+
+
+
+    </ion-title>
+
+
+
+    <ion-buttons slot="end">
+
+
+
+
+
+
+    </ion-buttons>
+
+
+
+  </ion-toolbar>
+
+
+
+</ion-header>
+
+
+
+
+
+<ion-content [fullscreen]="true">
+
+
+
+  <!--Search bar-->
+
+
+
+  <ion-searchbar placeholder="Try 'Pastas'"
+
+
+
+                [(ngModel)]="searchTerm"
+
+
+
+                showCancelButton="focus"
+
+
+
+                animated id="sb"></ion-searchbar>
+
+
+
+
+
+
+               
+
+               
+
+
+
+                <ion-grid>
+
+
+
+                  <ion-row>
+
+
+
+                    <!--The search only functins for searching not for searching & accessing-->
+
+
+
+                    <ion-col *ngFor="let c of categories | filter: searchTerm" size="6">
+
+
+
+                      <ion-card  id="k" class="l" style="width: 170px; height: 230px;">
+
+
+
+                        <ion-card-content >
+
+
+
+                          <img src="../../assets/photos/Categories/{{c.Img}}" style="height: 85px;">  
+
+
+
+                          <ion-card-header>
+
+
+
+                            <ion-card-subtitle class="l">
+
+
+
+                              {{c.Category}}
+
+
+
+                            </ion-card-subtitle>
+
+
+
+                          </ion-card-header>
+
+                          <button type="button" class="btn btn-outline-secondary" style="    width: 124px;" (click)="goToItems(c.Category)">Shop</button>
+
+                        </ion-card-content>
+
+                        
+
+                      </ion-card>
+
+
+
+                    </ion-col>
+
+
+
+               
+
+
+
+              </ion-row>
+
+
+
+              </ion-grid>
+
+
+
+
+
+</ion-content>

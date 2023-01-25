@@ -1,0 +1,121 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+
+        <ion-back-button default-href="#"></ion-back-button>
+
+    </ion-buttons>
+
+    <ion-title>
+
+        Cart
+
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content>
+
+  <div class="card">
+
+    <div class="row">
+
+        <div class="col-md-8 cart">
+
+            <div class="title">
+
+                <div class="row">
+
+                    <div class="col"><h4><b>Shopping Cart</b></h4></div>
+
+                    <div class="col align-self-center text-right text-muted">{{numberItems}} Items</div>
+
+                </div>
+
+            </div>    
+
+            <div class="row border-top border-bottom">
+
+                <div class="row main align-items-center" *ngFor="let item of cart  let i=index;">
+
+       
+
+                    <div class="col-2">
+
+                   
+
+                        <div class="row">{{item.name}}</div>
+
+                    </div>
+
+                    <div class="col-5">
+
+                        <a (click)="decrementQty(i,item.itemId)"><i class="bi bi-dash-lg"></i></a><a class="border">{{item.qty}}</a><a (click)="incrementQty(i,item.itemId)"><i class="bi bi-plus-lg"></i></a>
+
+                    </div>
+
+                    <div class="col-5">BHD {{item.price}} <span class="close" (click)="removeItem(item.itemId)">&#10005;</span></div>
+
+                </div>
+
+            </div>
+
+            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+
+        </div>
+
+        <div class="col-md-4 summary">
+
+            <div><h5><b>Summary</b></h5></div>
+
+            <hr>
+
+            <div class="row">
+
+                <div class="col-6" style="padding-left:0;">Sub Total</div>
+
+                <div class="col-4 text-right">{{subtotal}}</div>
+
+                <span class="col-2">BHD</span>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-6" style="padding: 1px;">Delivery Fee </div>
+
+                <div class="col-4 text-right"> {{deliveryCharge}}</div>
+
+                <span class="col-2">BHD</span>
+
+            </div>
+
+           
+
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+
+                <div class="col-6">TOTAL </div>
+
+                <div class="col-4 text-right"> {{total}}</div>
+
+                <span class="col-2">BHD</span>
+
+            </div>
+
+            <button class="btn" (click)="checkOut()">CHECKOUT</button>
+
+        </div>
+
+    </div>
+
+   
+
+</div>
+
+</ion-content>

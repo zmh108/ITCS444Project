@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Categories
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="icon-only" routerLink="/add-item">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--Search bar-->
+  <ion-searchbar placeholder="Try 'Pastas'"
+                [(ngModel)]="searchTerm"
+                showCancelButton="focus"
+                animated id="sb"></ion-searchbar>
+                <div class="box box2">
+                  <apx-chart
+                    [chart]="barOptions.chart"
+                    [series]="barOptions.series"
+                    [labels]="barOptions.labels"
+                    [grid]="barOptions.grid"
+                    [xaxis]="barOptions.xaxis"
+                    [yaxis]="barOptions.yaxis"
+                    [title]="barOptions.title"
+                    [legend]="barOptions.legend"
+                    [dataLabels]="barOptions.dataLabels"
+                  ></apx-chart>
+                </div>
+
+                <div class="box box4">
+                  <apx-chart
+                    [chart]="radial.chart"
+                    [series]="radial.series"
+                    [plotOptions]="radial.plotOptions"
+                    [fill]="radial.fill"
+                    [labels]="radial.labels"
+                    [title]="radial.title"
+                  ></apx-chart>
+                </div>
+                
+                <ion-grid>
+                  <ion-row>
+                    <!--The search only functins for searching not for searching & accessing-->
+                    <ion-col *ngFor="let c of Categories | filter:searchTerm  let j=index" size="6">
+                      <ion-card  id="k" class="l" style="width: 170px; height: 230px;">
+                        <ion-card-content routerLink="/items/{{j}}">
+                          <img src="../../assets/photos/Categories/{{c.Img}}" style="height: 85px;">  
+                          <ion-card-header>
+                            <ion-card-subtitle class="l">
+                              {{c.Category}}
+                            </ion-card-subtitle>
+                          </ion-card-header>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                
+              </ion-row>
+              </ion-grid>
+
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+    <ion-title>{{category.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <!--Search bar-->
+  <ion-searchbar placeholder="Search items, quantities, & more"
+  [(ngModel)]="searchTerm"
+  showCancelButton="focus"
+  animated></ion-searchbar>
+
+  <ion-item>
+    <ion-label class="title">
+      Enter Threshold
+    </ion-label>
+    <br>
+  <ion-input [(ngModel)]="th"></ion-input>
+
+</ion-item>
+
+  <!--<ion-searchbar placeholder="Enter threshold"
+                [(ngModel)]="th"
+                showCancelButton="focus"
+                animated></ion-searchbar>-->
+      
+                    <ion-grid>
+                      <ion-row>
+                        <!--The search only functins for searching not for searching & accessing-->
+                        <div *ngFor="let i of Items | filter:searchTerm let j=index" class="z" >
+                          <div *ngIf="th > i.Quantity">
+                        <ion-col *ngIf="category.name==i.Category" size="6">
+                          <div  *ngIf="i.Quantity>i.Threshold else rBlock">
+                          <ion-card  id="k" class="l" style="width: 170px; height: 230px;">
+                            <ion-card-content routerLink="/item-details/{{j}}">
+                              <img src="../../assets/photos/Items/{{i.Img}}" style="height: 95px;">   
+                              <ion-card-header>
+                                <ion-card-subtitle class="l">
+                                  {{i.Name}}
+                                </ion-card-subtitle>
+                                <ion-card-subtitle class="l">
+                                  {{i.Quantity}}
+                                </ion-card-subtitle>
+                              </ion-card-header>
+                            </ion-card-content>
+                          </ion-card>
+                        </div>
+                        <ng-template #rBlock>
+                        <div>
+                          <ion-card  id="k" class="r" style="width: 170px; height: 230px;">
+                            <ion-card-content routerLink="/item-details/{{j}}">
+                              <img src="../../assets/photos/Items/{{i.Img}}" style="height: 95px;">   
+                              <ion-card-header>
+                                <ion-card-subtitle class="l">
+                                  {{i.Name}}
+                                </ion-card-subtitle>
+                                <ion-card-subtitle class="l">
+                                  {{i.Quantity}}
+                                </ion-card-subtitle>
+                              </ion-card-header>
+                            </ion-card-content>
+                          </ion-card>
+                        </div>
+                      </ng-template>
+                        </ion-col>
+                      </div>
+                    </div>
+                    
+                  </ion-row>
+                  </ion-grid>
+
+</ion-content>
